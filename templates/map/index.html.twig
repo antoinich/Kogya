@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MapController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+{% endblock %}
+
+{% block body %}
+<h1> Où sauver la planète ?</h1>
+    <div class="container">
+        <div class="list">
+
+            {% for actor in actors %}
+            <div class="item js-marker" data-lat ="{{ actor.lat }}" data-lng = " {{ actor.longitude }}" data-price="30">
+                <img src="https://via.placeholder.com/400x260" alt="">
+                <h4>{{ actor.name }}</h4>
+                <p>{{ actor.description }}</p>
+                <a href="">+ de détails</a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="map" id="map"></div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/vendor.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}

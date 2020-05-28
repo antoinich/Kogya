@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GogoController!{% endblock %}
+{%  block stylesheets %}
+ {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="gogo-iframe" align="center">
+        <iframe width="800" height="600" src="https://kogya.gogocarto.fr/annuaire?iframe=1#/carte/@46.23,-2.16,6z?cat=all" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+    </div>
+{% endblock %}
